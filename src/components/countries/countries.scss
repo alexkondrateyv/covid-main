@@ -1,0 +1,118 @@
+.countries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  &__item {
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    margin-bottom: 20px;
+
+    &-num,
+    &-name,
+    &-confirmed {
+      padding: 0 23px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+
+      color: #000000;
+    }
+
+    &-num {
+      width: 78px;
+    }
+
+    &-name {
+      width: calc(70% - 78px);
+      border-right: 1px solid #B2B2B2;
+      border-left: 1px solid #B2B2B2;
+    }
+
+    &-confirmed {
+      width: 30%;
+    }
+
+    &_head {
+      background: #2196F3;
+
+      &>.countries__item-num,
+      &>.countries__item-name,
+      &>.countries__item-confirmed {
+        color: #FFFFFF;
+      }
+
+      &>.countries__item-name {
+        border-right: 1px solid #FFFFFF;
+        border-left: 1px solid #FFFFFF;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__item {
+      height: 40px;
+      border-radius: 15px;
+      margin-bottom: 10px;
+
+      &-num,
+      &-name,
+      &-confirmed {
+        padding: 0 12px;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      &-num {
+        width: 40px;
+      }
+
+      &-name {
+        width: calc(70% - 40px);
+        border-right: 1px solid #B2B2B2;
+        border-left: 1px solid #B2B2B2;
+      }
+
+      &-confirmed {
+        width: 30%;
+      }
+
+      &_head {
+        background: #2196F3;
+
+        &>.countries__item-num,
+        &>.countries__item-name,
+        &>.countries__item-confirmed {
+          color: #FFFFFF;
+        }
+
+        &>.countries__item-name {
+          border-right: 1px solid #FFFFFF;
+          border-left: 1px solid #FFFFFF;
+        }
+      }
+    }
+  }
+
+  &__error {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+
+    &-sad {
+      margin-bottom: 20px;
+      width: 200px;
+      height: auto;
+    }
+  }
+}
