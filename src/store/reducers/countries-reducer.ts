@@ -1,4 +1,4 @@
-import { CountriesState, CountriesAcrionTypes, CountriesAction } from './../../types/countries';
+import { CountriesState, CountriesAcrionTypes, CountriesAction } from '../../types/countries';
 
 const defaultState: CountriesState = {
   data: [],
@@ -6,7 +6,7 @@ const defaultState: CountriesState = {
   error: null,
 }
 
-export const allCountriesReducer = (state = defaultState, action: CountriesAction): CountriesState => {
+export const allCountriesReducer = (state: CountriesState = defaultState, action: CountriesAction): CountriesState => {
   switch (action.type) {
     case CountriesAcrionTypes.GET_COUNTRIES:
       return { loading: true, error: null, data: [] }
