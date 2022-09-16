@@ -1,9 +1,10 @@
+import React from 'react';
 import './header.scss';
 
 import logo from '../../images/logo.png';
 import search from '../../images/search.svg';
 
-export function Header(): JSX.Element {
+export const Header: React.FC = () => {
   return (
     <header className='header'>
       <div className="header__logo">

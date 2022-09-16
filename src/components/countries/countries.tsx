@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
 
-import { useActions } from '../../hooks/useActon';
+import { useActions } from '../../hooks/useAction';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 import Loading from '../loading/loading';
 
-import './countries.scss';
 import sad from '../../images/sad.png';
- 
+
+import './countries.scss';
+
 const Countries: React.FC = () => {
   const { data, error, loading } = useTypedSelector(state => state.countries);
   const { fetchCountries } = useActions()
+  const { turnOnModal } = useActions()
 
   useEffect(() => {
     fetchCountries()
@@ -26,7 +28,7 @@ const Countries: React.FC = () => {
   if (error) {
     return (
       <div className="countries">
-        <img src={sad} alt="sad" className="countries__error-sad"/>
+        <img src={sad} alt="sad" className="countries__error-sad" />
         <p className="countries__error">{error}</p>
       </div>
     )
@@ -40,7 +42,14 @@ const Countries: React.FC = () => {
         <p className="countries__item-confirmed">Total Confirmed</p>
       </div>
       {data.map(country =>
-        <div key={country.ID} className="countries__item">
+        <div key={country.ID} className="countries__item" onClick={() => {
+          turnOnModal(
+            country.Country,
+            country.TotalConfirmed,
+            country.TotalDeaths,
+            country.TotalRecovered,
+          )
+        }}>
           <p className="countries__item-num">{data.indexOf(country) + 1}</p>
           <p className="countries__item-name">{country.Country}</p>
           <p className="countries__item-confirmed">{country.TotalConfirmed}</p>

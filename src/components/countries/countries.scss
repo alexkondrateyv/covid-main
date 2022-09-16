@@ -6,7 +6,7 @@
 
   &__item {
     cursor: pointer;
-    
+
     display: flex;
     align-items: center;
     width: 100%;
@@ -44,6 +44,7 @@
     }
 
     &_head {
+      cursor: auto;
       background: #2196F3;
 
       &>.countries__item-num,
