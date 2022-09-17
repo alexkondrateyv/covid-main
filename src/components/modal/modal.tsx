@@ -1,9 +1,9 @@
 import React from 'react';
+
 import './modal.scss';
 
-import { useTypedSelector } from '../../hooks/useTypedSelector';
-
 import { useActions } from '../../hooks/useAction';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 import icon_confirmed from '../../images/confirmed.svg';
 import icon_death from '../../images/death.svg';

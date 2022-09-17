@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 
+import './countries.scss';
+
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-import Loading from '../loading/loading';
+import { Loading } from '../loading/loading';
 
 import sad from '../../images/sad.png';
 
-import './countries.scss';
-
-const Countries: React.FC = () => {
+export const Countries: React.FC = () => {
   const { data, error, loading } = useTypedSelector(state => state.countries);
   const { value } = useTypedSelector(state => state.liveSearch);
 
@@ -31,6 +31,7 @@ const Countries: React.FC = () => {
       </div>
     )
   }
+
   if (error) {
     return (
       <div className="countries">
@@ -64,5 +65,3 @@ const Countries: React.FC = () => {
     </div>
   );
 }
-
-export default Countries;
