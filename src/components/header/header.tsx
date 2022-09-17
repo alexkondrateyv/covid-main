@@ -1,10 +1,14 @@
 import React from 'react';
 import './header.scss';
 
+import { useActions } from '../../hooks/useAction';
+
 import logo from '../../images/logo.png';
 import search from '../../images/search.svg';
 
 export const Header: React.FC = () => {
+  const { updateSearch } = useActions()
+
   return (
     <header className='header'>
       <div className="header__logo">
@@ -16,6 +20,9 @@ export const Header: React.FC = () => {
           type="text"
           placeholder="Search..."
           className="header__search-input"
+          onChange={(event) => {
+            updateSearch(event.target.value)
+          }}
         />
         <img src={search} alt="search" className="header__search-img" />
       </form>

@@ -13,41 +13,38 @@ export const Modal: React.FC = () => {
   const { isActive, country, confirmed, death, recovered } = useTypedSelector(state => state.modal)
   const { turnOffModal } = useActions()
 
-  if (isActive) {
-    return (
-      <div className='bg'>
-        <div className="modal">
-          <div className="modal__head">
-            {country}
-          </div>
-          <div className="modal__row">
-            <div className="modal__row-info">
-              <img src={icon_confirmed} alt="confirmed" width="30" height="30" className="modal__row-info-img" />
-              <p className="modal__row-info-text">Total Confirmed</p>
+  return (
+    <>
+      {isActive ?
+        <div className='bg'>
+          <div className="modal">
+            <div className="modal__head">
+              {country}
             </div>
-            <p className="modal__row-num">{confirmed}</p>
-          </div>
-          <div className="modal__row">
-            <div className="modal__row-info">
-              <img src={icon_death} alt="death" width="30" height="30" className="modal__row-info-img" />
-              <p className="modal__row-info-text">Total Deaths</p>
+            <div className="modal__row">
+              <div className="modal__row-info">
+                <img src={icon_confirmed} alt="confirmed" width="30" height="30" className="modal__row-info-img" />
+                <p className="modal__row-info-text">Total Confirmed</p>
+              </div>
+              <p className="modal__row-num">{confirmed}</p>
             </div>
-            <p className="modal__row-num">{death}</p>
-          </div>
-          <div className="modal__row">
-            <div className="modal__row-info">
-              <img src={icon_recovered} alt="recovered" width="30" height="30" className="modal__row-info-img" />
-              <p className="modal__row-info-text">Total Recovered</p>
+            <div className="modal__row">
+              <div className="modal__row-info">
+                <img src={icon_death} alt="death" width="30" height="30" className="modal__row-info-img" />
+                <p className="modal__row-info-text">Total Deaths</p>
+              </div>
+              <p className="modal__row-num">{death}</p>
             </div>
-            <p className="modal__row-num">{recovered}</p>
+            <div className="modal__row">
+              <div className="modal__row-info">
+                <img src={icon_recovered} alt="recovered" width="30" height="30" className="modal__row-info-img" />
+                <p className="modal__row-info-text">Total Recovered</p>
+              </div>
+              <p className="modal__row-num">{recovered}</p>
+            </div>
+            <button type="button" onClick={() => turnOffModal()} className="modal__btn">Ok</button>
           </div>
-          <button type="button" onClick={() => turnOffModal()} className="modal__btn">Ok</button>
-        </div>
-      </div>
-    )
-  } else {
-    return (
-      <></>
-    )
-  };
+        </div> : null}
+    </>
+  )
 }

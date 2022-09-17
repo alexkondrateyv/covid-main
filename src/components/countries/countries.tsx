@@ -11,8 +11,14 @@ import './countries.scss';
 
 const Countries: React.FC = () => {
   const { data, error, loading } = useTypedSelector(state => state.countries);
+  const { value } = useTypedSelector(state => state.liveSearch);
+
   const { fetchCountries } = useActions()
   const { turnOnModal } = useActions()
+
+  const filteredCountries = data.filter(country => {
+    return country.Country.toLowerCase().includes(value.toLowerCase());
+  })
 
   useEffect(() => {
     fetchCountries()
@@ -41,7 +47,7 @@ const Countries: React.FC = () => {
         <p className="countries__item-name">Country</p>
         <p className="countries__item-confirmed">Total Confirmed</p>
       </div>
-      {data.map(country =>
+      {filteredCountries.map(country =>
         <div key={country.ID} className="countries__item" onClick={() => {
           turnOnModal(
             country.Country,
@@ -50,7 +56,7 @@ const Countries: React.FC = () => {
             country.TotalRecovered,
           )
         }}>
-          <p className="countries__item-num">{data.indexOf(country) + 1}</p>
+          <p className="countries__item-num">{filteredCountries.indexOf(country) + 1}</p>
           <p className="countries__item-name">{country.Country}</p>
           <p className="countries__item-confirmed">{country.TotalConfirmed}</p>
         </div>
