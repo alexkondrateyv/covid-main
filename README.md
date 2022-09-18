@@ -12,11 +12,11 @@ Requirements:
 - a modal window with details of country statistics when clicked on;
 
 Technologies:
-- React (with hooks)
-- Typescript
-- Redux (thunk)
-- Axios
-- SCSS
+- React (with hooks);
+- Typescript;
+- Redux (thunk);
+- Axios;
+- SCSS;
 
 ## Example JSON Response from the Price Ticker service
 ```json
