@@ -5,7 +5,7 @@ import './countries.scss';
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-import { filter } from '../../services/filter-countries';
+import { filter } from '../../services/filter';
 
 import { Loading } from '../loading/loading';
 
