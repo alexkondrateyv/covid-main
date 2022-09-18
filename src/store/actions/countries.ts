@@ -6,7 +6,7 @@ import { URL } from "../../constants/base-url";
 
 import { CountriesAcrionTypes, CountriesAction } from "../../types/countries";
 
-export const fetchCountries: any = () => {
+export const fetchCountries = () => {
   return async (dispatch: Dispatch<CountriesAction>) => {
     try {
       dispatch({ type: CountriesAcrionTypes.GET_COUNTRIES })

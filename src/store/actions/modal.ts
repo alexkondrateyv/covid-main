@@ -2,7 +2,7 @@ import { Dispatch } from "redux";
 
 import { ModalAction, ModalActionTypes } from './../../types/modal';
 
-export const turnOnModal: any = (countryName: string, totalConfirmed: number, totalDeath: number, totalRecovered: number) => {
+export const turnOnModal = (countryName: string, totalConfirmed: number, totalDeath: number, totalRecovered: number) => {
   return (dispatch: Dispatch<ModalAction>) => {
     dispatch({
       type: ModalActionTypes.SWITCH_ON_MODAL,
@@ -17,7 +17,7 @@ export const turnOnModal: any = (countryName: string, totalConfirmed: number, to
   }
 }
 
-export const turnOffModal: any = () => {
+export const turnOffModal = () => {
   return (dispatch: Dispatch<ModalAction>) => {
     dispatch({ type: ModalActionTypes.SWITCH_OFF_MODAL, payload: false })
   }

@@ -5,9 +5,11 @@ import './countries.scss';
 import { useActions } from '../../hooks/useAction';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
+import { filter } from '../../services/filter-countries';
+
 import { Loading } from '../loading/loading';
 
-import sad from '../../images/sad.png';
+import sadIcon from '../../images/sad.png';
 
 export const Countries: React.FC = () => {
   const { data, error, loading } = useTypedSelector(state => state.countries);
@@ -16,13 +18,11 @@ export const Countries: React.FC = () => {
   const { fetchCountries } = useActions()
   const { turnOnModal } = useActions()
 
-  const filteredCountries = data.filter(country => {
-    return country.Country.toLowerCase().includes(value.toLowerCase());
-  })
-
   useEffect(() => {
     fetchCountries()
   }, [])
+
+  const filteredCountries = filter(data, value, 'Country');
 
   if (loading) {
     return (
@@ -35,7 +35,7 @@ export const Countries: React.FC = () => {
   if (error) {
     return (
       <div className="countries">
-        <img src={sad} alt="sad" className="countries__error-sad" />
+        <img src={sadIcon} alt="sad" className="countries__error-sad" />
         <p className="countries__error">{error}</p>
       </div>
     )
